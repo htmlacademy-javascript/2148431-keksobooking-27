@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Тигран Джамалян](https://up.htmlacademy.ru/javascript/27/user/2148431).
-* Наставник: [Владислав Молчанов] (https://htmlacademy.ru/profile/id137398).
+* Наставник: [Владислав Молчанов](https://htmlacademy.ru/profile/id137398).
 *
 
 ---
