@@ -12,8 +12,8 @@ const getPositiveNumber = (a, b) => {
 
 // A function that returns a random floating point number from the given range, inclusive
 // Parameters a and b are min and max values respectively. Digits is a number of value after fixed-point notation.
-const getRandomPositiveFloat = (a, b, digits) => {
-  if (a < 0 || b < 0 || digits < 0) {
+const getRandomPositiveFloat = (a, b, digits = 1) => {
+  if (a < 0 || b < 0 || digits <= 0) {
     return NaN;
   }
 
