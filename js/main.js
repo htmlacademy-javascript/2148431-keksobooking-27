@@ -1,8 +1,3 @@
-// A function that returns a random integer from the given range, inclusive
-const getPositiveNumber = (a, b) => {
-  if (a < 0 || b < 0) {
-    return NaN;
-  }
 
   // Implement support for passing the minimum and maximum values in random order
   const lowerValue = Math.ceil(Math.min(a, b));
