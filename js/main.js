@@ -43,9 +43,6 @@ const ADS_TITLE = ['Бугало', 'Отель', 'Комната', 'Кварти
 // This constant value need for generation 10 similar objects
 const SIMILAR_OBJECTS_COUNT = 10;
 
-// List of price values
-const PRICE_FOR_HOME = [ 100, 1000, 10000, 200, 250, 500, 750, 1250, 1500, 1700, 1990, 2500, 5000, 8000 ];
-
 // Type of home
 const HOME_TYPES = [
   'flat',
@@ -75,9 +72,6 @@ const CHECKOUT = [
   '14:00',
 ];
 
-// Amount of rooms array
-const ROOMS = [1, 2, 3, 4, 5, 6, 7 ];
-
 // Array of descriptions for ads
 const DESCRIPTION = [
   'Без ремонта',
@@ -90,9 +84,6 @@ const DESCRIPTION = [
   'Без кошек и детей'
 ];
 
-// Amount of guests array
-const GUESTS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ];
-
 // Array of features for ads
 const FEATURES = [
   'wifi',
@@ -104,7 +95,7 @@ const FEATURES = [
 ];
 
 
-// ============ Values for coordinate ============= //
+// ============ Values  ============= //
 const LATITUDE = {
   min: 35.65000,
   max: 35.70000,
@@ -139,14 +130,17 @@ const getAuthor = () => {
 
 const getOffer = () => {
   const addressValue = getLocation();
+  const priceRandomValue = getRandomPositiveInteger(100, 10000);
+  const guestRandomValue = getRandomPositiveInteger(1, 15);
+  const roomsRandomValue = getRandomPositiveInteger(1, 7);
 
   return ({
     title: getRandomArrayElement(ADS_TITLE),
     address: addressValue,
-    price: getRandomArrayElement(PRICE_FOR_HOME),
+    price: priceRandomValue,
     type: getRandomArrayElement(HOME_TYPES),
-    rooms: getRandomArrayElement(ROOMS),
-    guests: getRandomArrayElement(GUESTS),
+    rooms: roomsRandomValue,
+    guests: guestRandomValue,
     checkin: getRandomArrayElement(CHECKIN),
     checkout: getRandomArrayElement(CHECKOUT),
     features: getRandomArrayElement(FEATURES),
@@ -155,6 +149,6 @@ const getOffer = () => {
   });
 };
 
+
 const similarAuthors = Array.from({length: SIMILAR_OBJECTS_COUNT}, getAuthor);
 const similarOffers = Array.from({length: SIMILAR_OBJECTS_COUNT}, getOffer);
-
