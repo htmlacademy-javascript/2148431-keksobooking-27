@@ -1,5 +1,5 @@
 // Import constant values from constant.js for function getLocation()
-import {LATITUDE, LONGITUDE} from './constants';
+import {LATITUDE, LONGITUDE} from './constants.js';
 
 
 // A function that returns a random integer from the given range, inclusive
@@ -44,20 +44,28 @@ const generationAvatarList = () => {
   return result;
 };
 
-const getLocation = () => {
-  const lat = getRandomPositiveFloat(LATITUDE.min, LATITUDE.max, 3);
-  const lng = getRandomPositiveFloat(LONGITUDE.min, LONGITUDE.max, 3);
+const getRandomLatitude = () =>
+  getRandomPositiveFloat(LATITUDE.min, LATITUDE.max, 3);
 
-  return {
-    location: {lat, lng},
-  };
+const getRandomLongitude = () =>
+  getRandomPositiveFloat(LONGITUDE.min, LONGITUDE.max, 3);
+
+const createLocationData = () => ({
+  lat: getRandomLatitude(),
+  lng: getRandomLongitude(),
+});
+
+const getRandomPropertyForDict = (obj) => {
+  const keys = Object.keys(obj);
+
+  return keys[Math.floor(Math.random() * keys.length)];
 };
-
 
 export const helperFunctions = {
   getRandomPositiveInteger,
   generationAvatarList,
   getRandomArrayElement,
   getRandomPositiveFloat,
-  getLocation,
+  createLocationData,
+  getRandomPropertyForDict,
 };
