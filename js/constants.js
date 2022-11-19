@@ -1,17 +1,17 @@
 // Titles
-const ADS_TITLE = ['Бугало', 'Отель', 'Комната', 'Квартира', 'Дом', 'Дворец'];
+const ADS_TITLE = ['Бугало настоящее', 'Лучший отель', 'Комната для студенток', 'Квартира для молодых пар', 'Уютный дом', 'Роскошный дворец'];
 
 // This constant value need for generation 10 similar objects
 const SIMILAR_OBJECTS_COUNT = 10;
 
 // Type of home
-const HOME_TYPES = [
-  'flat',
-  'bungalow',
-  'house',
-  'palace',
-  'hotel',
-];
+const HOME_TYPES = {
+  'Квартира': 'flat',
+  'Бунгало': 'bungalow',
+  'Дом': 'house',
+  'Дворец': 'palace',
+  'Отель': 'hotel',
+};
 
 // Array of photos
 const PHOTOS = [

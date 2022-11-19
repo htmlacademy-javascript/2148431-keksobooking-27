@@ -14,19 +14,23 @@ const getAuthor = () => {
   };
 };
 
+const getLocation = () => {
+  const locationValue = helperFunctions.createLocationData();
+  return ({
+    location: locationValue,
+  });
+};
 
-// Getting ad with usage random values and functions
 const getOffer = () => {
-  const addressValue = helperFunctions.getLocation();
   const priceRandomValue = helperFunctions.getRandomPositiveInteger(100, 10000);
   const roomsRandomValue = helperFunctions.getRandomPositiveInteger(1, 7);
   const guestRandomValue = helperFunctions.getRandomPositiveInteger(1, 15);
 
   return ({
     title: helperFunctions.getRandomArrayElement(constant.ADS_TITLE),
-    address: addressValue,
+    address: getLocation().location,
     price: priceRandomValue,
-    type: helperFunctions.getRandomArrayElement(constant.HOME_TYPES),
+    type: helperFunctions.getRandomPropertyForDict(constant.HOME_TYPES),
     rooms: roomsRandomValue,
     guests: guestRandomValue,
     checkin: helperFunctions.getRandomArrayElement(constant.CHECKIN),
@@ -40,3 +44,10 @@ const getOffer = () => {
 // Getting authors and offers in amount according to SIMILAR_OBJECTS_COUNT. Its equals to 10.
 const similarAuthors = Array.from({length: constant.SIMILAR_OBJECTS_COUNT}, getAuthor);
 const similarOffers = Array.from({length: constant.SIMILAR_OBJECTS_COUNT}, getOffer);
+const similarLocations = Array.from({length: constant.SIMILAR_OBJECTS_COUNT}, getLocation);
+
+export const getResultObject = () => ({
+  author: getAuthor(),
+  offer: getOffer(),
+  location: getLocation(),
+});
