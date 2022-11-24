@@ -111,6 +111,20 @@ const turnAdFormOn = () => {
   });
 };
 
+// ========= CHECK-IN/OUT TIME =========== //
+const timeIn = adForm.querySelector('#timein');
+const timeOut = adForm.querySelector('#timeout');
+
+const validateTime = () => timeIn.value === timeOut.value;
+
+timeIn.addEventListener('change', () => {
+  timeOut.value = timeIn.value;
+});
+timeOut.addEventListener('change', () => {
+  timeIn.value = timeOut.value;
+});
+
+// ========= ADD VALIDATOR =========== //
 
 pristine.addValidator(
   adFormCapacity,
@@ -121,6 +135,14 @@ pristine.addValidator(
   adFormRooms,
   validateCapacity,
   getRoomsErrorMessage,
+);
+pristine.addValidator(
+  timeIn,
+  validateTime,
+);
+pristine.addValidator(
+  timeOut,
+  validateTime,
 );
 
 adForm.addEventListener('submit', (evt) => {
